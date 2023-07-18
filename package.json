@@ -1,0 +1,22 @@
+{
+  "name": "issue-tracker",
+  "version": "1.0.0",
+  "description": "Nodejs + ejs Application to track issues/bugs for a project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js"
+  },
+  "author": "Vinay",
+  "license": "ISC",
+  "dependencies": {
+    "config": "^3.3.7",
+    "dotenv": "^16.3.1",
+    "ejs": "^3.1.9",
+    "express": "^4.18.2",
+    "express-ejs-layouts": "^2.5.1",
+    "mongoose": "^6.11.2",
+    "nodemon": "^2.0.21"
+  },
+  "devDependencies": {}
+}

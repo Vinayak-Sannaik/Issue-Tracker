@@ -1,0 +1,11 @@
+<!-- shows create project button on project page and create issue button if the project is open -->
+
+<div class="d-flex justify-content-center " style="height: 10vh;">
+  <h1 class="navbar-heading" style="color: rgb(3, 3, 97);">ISSUE TRACKER</h1>
+</div>
+<nav class="navbar navbar-expand-sm" style="background-color: rgb(200, 200, 230);">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/" style="font-weight: bolder;">Home</a>
+    <% if (title === "Project Page") { %> <%- include('_issue_form'); %> <% } else { %> <%- include('_project_form'); %> <% } %>
+  </div>
+</nav>

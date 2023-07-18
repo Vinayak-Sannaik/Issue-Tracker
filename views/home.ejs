@@ -1,0 +1,56 @@
+<head>
+  <style>
+    .card {
+      background-color: #F2F2F2;
+      border: 2px solid #C0C0C0;
+      border-radius: 10px;
+      padding: 20px;
+      margin-bottom: 20px;
+    }
+    .card-header {
+      background-color: #C0C0C0;
+      color: #333333;
+      font-weight: bold;
+      padding: 10px;
+      border-radius: 8px;
+      margin-bottom: 10px;
+    }
+    .card-subtitle {
+      color: #555555;
+      font-size: 14px;
+      margin-bottom: 10px;
+    }
+    .card-text {
+      color: #333333;
+      margin-bottom: 15px;
+    }
+    .btn-primary {
+      background-color: #E95420;
+      border-color: #E95420;
+      padding: 8px 20px;
+      border-radius: 5px;
+      font-size: 14px;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Your HTML code here -->
+  <div class="mb-5 p-5">
+    <% for( let project of projects ) { %>
+      <div class="card mb-2 w-50 m-auto">
+        <div class="card-header">
+          <span> Project Name: <%= project.name %></span>
+        </div>
+        <div class="card-body">
+          <p class="card-text">Author  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp : <%= project.author %></p>
+          <p class="card-text">Description : <%= project.description %></p>
+
+          <div class="text-end">
+            <a href="/project/<%=project._id%>" class="btn btn-primary">Open project</a>
+          </div>
+        </div>
+      </div>
+    <% } %>
+  </div>
+</body>

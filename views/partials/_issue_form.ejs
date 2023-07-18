@@ -1,0 +1,82 @@
+<div class="issue-form-container" >
+  <button
+    type="button"
+    class="btn btn-primary"
+    data-bs-toggle="modal"
+    data-bs-target="#exampleModal"
+    style="background-color: #198754; border-color: #c8b9b9; color: #ffffff;"
+  >
+    Create Issue
+  </button>
+</div>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" style="margin: 5px 10px 5px 10px;">
+  <div class="modal-dialog modal-dialog-centered" >
+    <div class="modal-content" style="background-color: #b9a3a3; color: #272323;">
+      <div class="modal-header" style="background-color: #bbacac; color: #141414;">
+        <h5 class="modal-title" id="exampleModalLabel">Create an Issue</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <form action="/project/<%=project._id%>" method="POST">
+        <div class="mb-3" style="margin: 5px 10px 5px 10px;">
+          <label for="titlelabel" class="form-label">Title</label>
+          <input type="text" name="title" placeholder="Title" required class="form-control" id="titlelabel" />
+        </div>
+        <div class="mb-3" style="margin: 5px 10px 5px 10px;">
+          <label for="descriptionlabel" class="form-label">Description</label>
+          <textarea name="description" placeholder="Describe your issue..." required class="form-control" id="descriptionlabel" style="height: 100px"></textarea>
+        </div>
+
+        <% if (project.labels.length > 0) { %>
+        <div class="mb-3" style="margin: 5px 10px 5px 10px;">
+          <label class="form-label">Labels</label>
+          <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+              Select Labels
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+              <% for (let label of project.labels) { %>
+              <li><a class="dropdown-item" href="#"><%= label %></a></li>
+              <% } %>
+            </ul>
+          </div>
+        </div>
+        <% } %>
+
+        <div class="mb-3" style="margin: 5px 10px 5px 10px;">
+          <label class="form-label">Add Labels</label>
+          <div class="form-check">
+            <input class="form-check-input" name="labels" type="checkbox" value="Bug" id="bug" />
+            <label class="form-check-label" for="bug">Bug</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" name="labels" type="checkbox" value="UI Improvement" id="ui-improvement" />
+            <label class="form-check-label" for="ui-improvement">UI Improvement</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" name="labels" type="checkbox" value="Documentation" id="documentation" />
+            <label class="form-check-label" for="documentation">Documentation</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" name="labels" type="checkbox" value="Enhancement" id="enhancement" />
+            <label class="form-check-label" for="enhancement">Enhancement</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" name="labels" type="checkbox" value="Duplicate" id="duplicate" />
+            <label class="form-check-label" for="duplicate">Duplicate</label>
+          </div>
+        </div>
+
+        <div class="mb-3" style="margin: 5px 10px 5px 10px;">
+          <label for="authorlabel" class="form-label">Author</label>
+          <input type="text" name="author" placeholder="Author" required class="form-control" id="authorlabel" />
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" >Close</button>
+          <button type="submit" class="btn btn-primary" style="background-color: #E95420; border-color: #E95420;" >Create Issue</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
