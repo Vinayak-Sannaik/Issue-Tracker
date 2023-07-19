@@ -20,7 +20,7 @@ module.exports.create = async function (req, res) {
 // find project and display it in the project page
 module.exports.project = async function (req, res) {
   try {
-    let project = await Project.findById(req.params.id).populate({
+    const project = await Project.findById(req.params.id).populate({
       path: 'issues',
     });
     if (project) {
@@ -39,7 +39,7 @@ module.exports.project = async function (req, res) {
 // create issue
 module.exports.createIssue = async function (req, res) {
   try {
-    let project = await Project.findById(req.params.id);
+    const project = await Project.findById(req.params.id);
     if (project) {
       let issue = await Issue.create({
         title: req.body.title,
@@ -57,7 +57,7 @@ module.exports.createIssue = async function (req, res) {
           }
         }
       } else {
-        let isPresent = project.labels.find((obj) => obj == req.body.labels);
+        const isPresent = project.labels.find((obj) => obj == req.body.labels);
         if (!isPresent) {
           project.labels.push(req.body.labels);
         }
